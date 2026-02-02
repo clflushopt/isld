@@ -1,0 +1,17 @@
+[package]
+name = "isld"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+nightly = []
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.8.1"
+shuttle = "0.8.1"
+
+[[bench]]
+name = "eytzinger"
+harness = false
