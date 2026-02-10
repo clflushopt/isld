@@ -1,5 +1,6 @@
 #![feature(core_intrinsics)]
 #![feature(unsafe_cell_access)]
+pub mod ebrq;
 pub mod nblfq;
 pub mod select;
 

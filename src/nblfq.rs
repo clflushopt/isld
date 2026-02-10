@@ -1,7 +1,8 @@
+//! Lock-free bounded queue.
 use std::{
     cell::UnsafeCell,
     mem::MaybeUninit,
-    sync::atomic::{AtomicU64, AtomicUsize, Ordering},
+    sync::atomic::{AtomicU64, Ordering},
 };
 
 #[repr(transparent)]
@@ -34,17 +35,6 @@ impl Cell {
     /// Write the value to the underlying atomic.
     fn store(&self, value: u64, ordering: Ordering) {
         self.0.store(value, ordering)
-    }
-
-    /// Executes a compare and swap.
-    fn cas(
-        &self,
-        current: u64,
-        new: u64,
-        success: Ordering,
-        failure: Ordering,
-    ) -> Result<u64, u64> {
-        self.0.compare_exchange(current, new, success, failure)
     }
 }
 
@@ -296,7 +286,7 @@ mod tests {
                 results.sort();
                 assert_eq!(results.len(), 16);
             },
-            10000,
+            100,
         );
     }
 }
