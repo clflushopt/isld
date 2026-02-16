@@ -1,7 +1,9 @@
 #![feature(core_intrinsics)]
 #![feature(unsafe_cell_access)]
+pub mod ebr;
 pub mod ebrq;
 pub mod nblfq;
+pub mod sch;
 pub mod select;
 
 pub struct EytzingerTree<T> {

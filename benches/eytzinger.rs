@@ -13,7 +13,7 @@ fn benchmark_eytzinger(c: &mut Criterion) {
         group.bench_function("std_binary_search", |b| {
             b.iter(|| {
                 for i in (0..size).step_by(size / 100) {
-                    black_box(data.binary_search(&i));
+                    let _ = black_box(data.binary_search(&i));
                 }
             });
         });

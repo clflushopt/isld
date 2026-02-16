@@ -10,8 +10,14 @@ nightly = []
 
 [dev-dependencies]
 criterion = "0.8.1"
+rand = "0.10.0"
+rand_chacha = "0.10.0"
 shuttle = "0.8.1"
 
 [[bench]]
 name = "eytzinger"
+harness = false
+
+[[bench]]
+name = "join_bench"
 harness = false
